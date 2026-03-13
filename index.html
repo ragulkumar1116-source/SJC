@@ -1,11 +1,7 @@
-*//<!DOCTYPE html>
-
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Student Photo Gallery</title>
-
-<style>
+<title>Student Photo Gallery</title><style>
 
 body{
     font-family: Arial, sans-serif;
@@ -50,25 +46,16 @@ h1{
     margin-top:4px;
 }
 
-</style>
-
-</head>
-<body>
-
-<h1>Student Photos</h1>
-
-<div class="gallery" id="gallery"></div>
-
-<script>
+</style></head><body><h1>All Student Photos (2018 - 2025)</h1><div class="gallery" id="gallery"></div><script>
 
 const gallery = document.getElementById("gallery")
 
-function addImages(prefix,start,end){
+function addImages(folder,prefix,start,end){
 
 for(let i=start;i<=end;i++){
 
 let imgNumber = prefix + i
-let url = "https://sjctni.edu/images/SPhotos/22/" + imgNumber + ".jpg"
+let url = "https://sjctni.edu/images/SPhotos/"+folder+"/"+imgNumber+".jpg"
 
 let box = document.createElement("div")
 box.className="box"
@@ -88,18 +75,21 @@ label.innerText = imgNumber
 link.appendChild(img)
 box.appendChild(link)
 box.appendChild(label)
+
 gallery.appendChild(box)
 
 }
 
 }
 
-addImages("22uel",501,540)
-addImages("22ust",101,189)
-addImages("22ubo",101,168)
+for(let year=18; year<=25; year++){
 
-</script>
+let y = year.toString()
 
-</body
+addImages(y, y+"uel",501,540)
+addImages(y, y+"ust",101,189)
+
+}
+
+</script></body>
 </html>
-
